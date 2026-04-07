@@ -23,7 +23,7 @@ public class HealthPackPickup : MonoBehaviour
 
         if (Input.GetKeyDown(interactKey))
         {
-            // Later you’ll add: heal player here
+            // Later youï¿½ll add: heal player here
             Destroy(gameObject);
         }
     }

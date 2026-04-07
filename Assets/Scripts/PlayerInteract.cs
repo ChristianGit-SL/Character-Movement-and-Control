@@ -24,41 +24,37 @@ public class PlayerInteract : MonoBehaviour {
     [SerializeField]
     private Transform holdPoint;
 
-    [SerializeField]
-    private Animator animator;
-
-    [SerializeField]
-    private InputActionReference attackInput;
-
-    private static readonly int AttackHash = Animator.StringToHash("Attack");
-
     private GameObject inHanditem;
 
     private RaycastHit hit;
     private Weapon currentWeapon;
 
-    private void OnEnable() {
-        if (attackInput != null) {
-            attackInput.action.Enable();
-            attackInput.action.performed += OnAttack;
+    private void Drop(InputAction.CallbackContext obj) {
+        if(inHanditem == null) {
+            Debug.Log("No weapon to drop");
+            return;
         }
-    }
 
-    private void OnDisable() {
-        if (attackInput != null) {
-            attackInput.action.performed -= OnAttack;
+        Debug.Log("Dropping: " + inHanditem.name);
+
+        inHanditem.transform.SetParent(null);
+        // inHanditem = null;
+
+        Rigidbody rb = inHanditem.GetComponent<Rigidbody>();
+        if(rb != null) {
+            rb.isKinematic = false;
         }
-    }
 
-    private void OnAttack(InputAction.CallbackContext obj) {
-    // Only attack if holding the axe (or any item)
-    if (inHanditem == null) {
-        return;
-    }
-    if (animator != null) {
-        animator.SetTrigger(AttackHash);
-    }
-}   
+        Collider col = inHanditem.GetComponent<Collider>();
+        if(col != null) {
+            col.enabled = true;
+        }
+
+        inHanditem.layer = LayerMask.NameToLayer("Pickable");
+        inHanditem = null;
+
+
+    }  
 
     private void Interact(InputAction.CallbackContext obj) {
         Debug.Log("Interact pressed");
@@ -88,11 +84,16 @@ public class PlayerInteract : MonoBehaviour {
 
         // Disable physics (optional)
         Rigidbody rb = inHanditem.GetComponent<Rigidbody>();
-        if (rb != null) rb.isKinematic = true;
-
+        if (rb != null) {
+            rb.isKinematic = true;
+        }
         // Disable collider (optional)
         Collider col = inHanditem.GetComponent<Collider>();
-        if (col != null) col.enabled = false;
+        if (col != null) {
+            col.enabled = false;
+        }
+
+        inHanditem.layer = LayerMask.NameToLayer("Default");
 
         // Parent to hand and snap
         inHanditem.transform.SetParent(holdPoint, true);
@@ -138,6 +139,10 @@ public class PlayerInteract : MonoBehaviour {
 
         if(Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame) {
             Interact(default);
+        }
+
+        if(Keyboard.current != null && Keyboard.current.qKey.wasPressedThisFrame) {
+            Drop(default);
         }
     }
 }
