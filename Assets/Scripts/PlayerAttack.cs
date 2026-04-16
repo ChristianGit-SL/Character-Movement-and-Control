@@ -8,7 +8,8 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField]
     private InputActionReference attackInput;
 
-    // private bool _isAttacking;
+    [SerializeField]
+    private Collider weaponCollider;
 
     private Animator _animator;
 
@@ -30,17 +31,17 @@ public class PlayerAttack : MonoBehaviour {
     }
 
     private void OnAttack(InputAction.CallbackContext obj) {
-        // if(_isAttacking) {
-        //     return;
-        // }
-
         Debug.Log("Attack");
         _animator.SetTrigger("Attack");
     }
 
-    // private IEnumerator Hit() {
-    //     _isAttacking = true;
-    //     yield return new WaitForSeconds(2.5f);
-    //     _isAttacking = false;
-    // }
+    public void EnableWeaponCollider() {
+        weaponCollider.enabled = true;
+        weaponCollider.GetComponent<BoxCollider>().isTrigger = true;
+    }
+
+    public void DisableWeaponCollider() {
+        weaponCollider.enabled = false;
+        weaponCollider.GetComponent<BoxCollider>().isTrigger = false;
+    }
 }

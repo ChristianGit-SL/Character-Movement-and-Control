@@ -9196,8 +9196,12 @@ MonoBehaviour:
   m_VersionIndex: 4676
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedEdges:
+  - a: 13
+    b: 15
+  - a: 1
+    b: 3
+  m_SelectedVertices: 0d0000000f0000000100000003000000
 --- !u!1 &206867922
 GameObject:
   m_ObjectHideFlags: 0
@@ -76882,13 +76886,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144307822}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.6419546, y: 0.2560772, z: -0.03757746, w: -0.7217387}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 71.066, y: -82.093, z: -417.788}
 --- !u!114 &2144307825
 MonoBehaviour:
   m_ObjectHideFlags: 0
