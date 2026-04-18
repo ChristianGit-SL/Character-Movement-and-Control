@@ -13931,7 +13931,7 @@ PrefabInstance:
     - target: {fileID: 6742986167939321683, guid: 4d81a52bce6d0fa408fb604e8cccaf85, type: 3}
       propertyPath: pickUpUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 417418838}
     - target: {fileID: 6742986167939321683, guid: 4d81a52bce6d0fa408fb604e8cccaf85, type: 3}
       propertyPath: playerCamera
       value: 
@@ -15141,6 +15141,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416892160}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &417418838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1542927675354526105, guid: 2cd266519cc3a4ffbb2b5f36dee0c33a, type: 3}
+  m_PrefabInstance: {fileID: 1265216048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &419675389
 GameObject:
   m_ObjectHideFlags: 0
