@@ -56,6 +56,8 @@ public class vThirdPersonCamera : MonoBehaviour
     private float cullingHeight = 0.2f;
     private float cullingMinDist = 0.1f;
 
+    public bool yInvert = false;
+
     #endregion
 
     void Start()
@@ -126,9 +128,19 @@ public class vThirdPersonCamera : MonoBehaviour
     /// <param name="y"></param>
     public void RotateCamera(float x, float y)
     {
+        float yValue;
+
         // free rotation 
         mouseX += x * xMouseSensitivity;
-        mouseY -= y * yMouseSensitivity;
+
+        if(yInvert) {
+            yValue = -y;
+        }
+        else {
+            yValue = y;
+        }
+
+        mouseY -= yValue * yMouseSensitivity;
 
         movementSpeed.x = x;
         movementSpeed.y = -y;
