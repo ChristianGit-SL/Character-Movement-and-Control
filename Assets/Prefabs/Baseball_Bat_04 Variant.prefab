@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d830bb16b11324cb244b3e5395c19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  damage: 0
+  damage: 10
 --- !u!65 &3083623344111351338
 BoxCollider:
   m_ObjectHideFlags: 0
