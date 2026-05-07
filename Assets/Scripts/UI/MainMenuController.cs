@@ -45,7 +45,7 @@ public class MainMenuController : MonoBehaviour
     {
         // Initial UI state
         started = false;
-        if (pressToStartGroup) pressToStartGroup.SetActive(true);
+        if (pressToStartGroup) pressToStartGroup.SetActive(false);
         if (mainButtonsGroup) mainButtonsGroup.SetActive(true);
         if (settingsPanel) settingsPanel.SetActive(false);
 
