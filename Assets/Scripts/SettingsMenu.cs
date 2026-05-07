@@ -70,8 +70,8 @@ public class SettingsMenu : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetKeyDown(KeyCode.Escape)) {
-            Debug.Log("Escape Pressed");
+        if(Input.GetKeyDown(KeyCode.P)) {
+            Debug.Log("P Pressed");
             SettingMenu();
         }
     }
