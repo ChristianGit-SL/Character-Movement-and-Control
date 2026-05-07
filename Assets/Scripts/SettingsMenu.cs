@@ -27,7 +27,7 @@ public class SettingsMenu : MonoBehaviour {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
 
-        myToggle.isOn = false;
+        // myToggle.isOn = false;
 
         resolutions = Screen.resolutions;
 
@@ -48,8 +48,23 @@ public class SettingsMenu : MonoBehaviour {
         }
 
         resolutionDropdown.AddOptions(options);
+
+        // float sV = PlayerPrefs.GetFloat("volume", -40f);
+        // int sR = PlayerPrefs.GetInt("resolution", currentResoIndex);
+        // bool sI = PlayerPrefs.GetInt("Y-Inversion", 0) == 1;
+
+        // aM.SetFloat("volume", sV);
+        // slider.value = sV;
+
+        // myToggle.isOn = sI;
+        // vTPC.yInvert = sI;
+
+        // resolutionDropdown.value = sR;
         resolutionDropdown.value = currentResoIndex;
         resolutionDropdown.RefreshShownValue();
+
+        // Resolution r = resolutions[sR];
+        // Screen.SetResolution(r.width, r.height, false);
 
     }
 
@@ -64,17 +79,23 @@ public class SettingsMenu : MonoBehaviour {
     public void SetVolume(float v) {
         Debug.Log(v);
         aM.SetFloat("volume", v);
+
+        // PlayerPrefs.SetFloat("volume", v);
     }
 
     public void SetResolution(int resoIndex) {
 
         Resolution reso = resolutions[resoIndex];
         Screen.SetResolution(reso.width, reso.height, false);
+
+        // PlayerPrefs.SetInt("Resolution", resoIndex);
     }
 
     public void SetYInversion(bool x) {
         vTPC.yInvert = x;
+        
         Debug.Log("value of x is: " + x);
+        // PlayerPrefs.SetInt("Y-Inversion", x ? 1 : 0);
     }
 
     public void SettingMenu() {
